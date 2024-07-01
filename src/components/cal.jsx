@@ -20,7 +20,7 @@ const Cal = (props) => {
                 }
                 else {
                     setResult(input + '=');
-                    setInput(res);
+                    setInput(res.toString());
                 }
             }
         }
@@ -30,7 +30,7 @@ const Cal = (props) => {
         }
         else if (value === 'DEL') {
             let str = input;
-            str = str.substr(0, str.length - 1)
+            str = str.substring(0, str.length - 1)
             setInput(str);
         }
         else if (input === '0') {
