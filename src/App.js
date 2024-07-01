@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Cal from "./components/cal.jsx";
 
 function App() {
   return (
     <div className='App'>
-      <Layout> </Layout>
+      <Cal> </Cal>
 
     </div>
   );
