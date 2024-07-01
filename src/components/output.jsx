@@ -6,7 +6,6 @@ const Output = props =>{
         <div>
             <OutputRow value={props.answer} textSize={{fontSize:'20px'}} />
             <OutputRow value={props.user} />
-       
             </div>
     )
 }

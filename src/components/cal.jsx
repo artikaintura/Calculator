@@ -44,9 +44,9 @@ const Cal = (props) => {
     return (
         <div className="frame">
             <div className="calculator">
-                <br />
-                <Output user={input} answer={result} />
                 <p> <span>My</span>Calculator</p>
+                <Output user={input} answer={result} />
+               <br />
                 <div className="keys">
                     <input type='button' value={'C'} className='button clear'
                         onClick={handleClick} />
