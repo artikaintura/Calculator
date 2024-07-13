@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './cal.css';
 import Output from './output';
+import { evaluate } from 'mathjs';
 
 const Cal = (props) => {
     let [input, setInput] = useState('0')
@@ -8,20 +9,12 @@ const Cal = (props) => {
     const handleClick = (event) => {
         const value = event.target.value;
         if (value === '=') {
-           if (input !== '') {
-                let res = ''
-                try {
-                    res = eval(input)
-                } catch (err) {
-                    setResult('Math Error')
-                }
-                if (res === undefined) {
-                    setResult('Math Error')
-                }
-                else {
-                    setResult(input + '=');
-                    setInput(res.toString());
-                }
+            try {
+                const res = evaluate(input); // Direct eval usage (unsafe)
+                setResult(input + '=');
+                setInput(res.toString());
+            } catch (err) {
+                setResult('Math Error');
             }
         }
         else if (value === 'C') {
@@ -46,7 +39,7 @@ const Cal = (props) => {
             <div className="calculator">
                 <p> <span>My</span>Calculator</p>
                 <Output user={input} answer={result} />
-               <br />
+                <br />
                 <div className="keys">
                     <input type='button' value={'C'} className='button clear'
                         onClick={handleClick} />
